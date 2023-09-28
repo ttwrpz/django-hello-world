@@ -1,9 +1,10 @@
 # example/views.py
-from datetime import datetime
 
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
+from django.views.generic import TemplateView
 
-def index(request):
-    template = loader.get_template('base.html')
-    return HttpResponse(template.render())
+class HomePageView(TemplateView):
+    template_name = "index.html"
+
+class AboutPageView(TemplateView):
+    template_name = "about.html"
